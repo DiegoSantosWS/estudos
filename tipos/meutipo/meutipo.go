@@ -39,10 +39,11 @@ func notaParaConceito2(n nota) string {
 	}
 }
 func main() {
+	fmt.Println("================================= usando if else============================\n")
 	fmt.Println(notaParaConceito(9.8))
 	fmt.Println(notaParaConceito(6.9))
 	fmt.Println(notaParaConceito(2.9))
-
+	fmt.Println("================================= usando switch case============================\n")
 	fmt.Println("S:", notaParaConceito2(9.8))
 	fmt.Println("S:", notaParaConceito2(6.9))
 	fmt.Println("S:", notaParaConceito2(2.9))
