@@ -48,7 +48,7 @@ func clientePorID(w http.ResponseWriter, r *http.Request, id int) {
 	defer db.Close()
 
 	var cli Clientes
-	db.QueryRow("SELECT id, nome, cpf, cnpj, nascimento, sexo, status, tipo, login FROM sig_clientes WHERE id = ?", id).Scan(&cli.ID, &cli.Nome, &cli.Cpf, &cli.Cnpj, &cli.Nascimento, &cli.Sexo, &cli.Status, &cli.Tipo, &cli.Login)
+	db.QueryRow("SELECT id, nome, cpf, cnpj, nascimento, sexo, status, tipo, login FROM clientes WHERE id = ?", id).Scan(&cli.ID, &cli.Nome, &cli.Cpf, &cli.Cnpj, &cli.Nascimento, &cli.Sexo, &cli.Status, &cli.Tipo, &cli.Login)
 
 	json, _ := json.Marshal(cli)
 	w.Header().Set("Conteont-Type", "application/json")
@@ -62,7 +62,7 @@ func clientesTodos(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
-	rows, _ := db.Query("select  id, nome, cpf, cnpj, nascimento, sexo, status, tipo, login  from sig_clientes")
+	rows, _ := db.Query("select  id, nome, cpf, cnpj, nascimento, sexo, status, tipo, login  from clientes")
 	defer rows.Close()
 
 	var clientes []Clientes
